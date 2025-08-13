@@ -52,15 +52,50 @@ class SimpleTitleScraper:
         
         return all_titles
     
+    def scrape_for_api(self, query, max_pages=1):
+        """
+        Extraer títulos de productos para la API (sin prints)
+
+        Args:
+            query (str): Término de búsqueda
+            max_pages (int): Número máximo de páginas
+
+        Returns:
+            list: Lista de títulos encontrados
+        """
+        all_titles = []
+
+        for page in range(1, max_pages + 1):
+            try:
+                titles = self._get_titles_from_page(query, page)
+                all_titles.extend(titles)
+
+                if page < max_pages:
+                    time.sleep(2)
+
+            except Exception as e:
+                # En un entorno real, podrías loguear este error
+                print(f"Error en página {page}: {e}")
+                continue
+
+        return all_titles
+
     def _get_titles_from_page(self, query, page):
         """Obtener títulos de una página específica"""
-        
+        import logging
+        logging.basicConfig(filename='scraper.log', level=logging.INFO)
+
         # Construir URL
         encoded_query = quote_plus(query)
         url = f"{self.base_url}/{encoded_query}?page={page}"
+        logging.info(f"Requesting URL: {url}")
         
         # Hacer request
         response = requests.get(url, headers=self.headers, timeout=10)
+        logging.info(f"Response status code: {response.status_code}")
+        with open("mercadolibre_response.html", "wb") as f:
+            f.write(response.content)
+        logging.info("Full response content saved to mercadolibre_response.html")
         response.raise_for_status()
         
         # Parsear HTML
