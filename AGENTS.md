@@ -17,3 +17,4 @@ When creating a pull request, please adhere to the following guidelines:
 *   **Pull Request Title:** The pull request title should match the commit message subject line.
 *   **Pull Request Description:** The pull request description should provide a detailed explanation of the changes, including the problem being solved, the solution implemented, and any relevant context.
 *   **Testing:** All changes should be accompanied by relevant tests. Ensure that all existing tests pass before submitting the pull request.
+*   **Branch Naming:** The branch name should be the ticket number in the format `RTS-XXXX`.
