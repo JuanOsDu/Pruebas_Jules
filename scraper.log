@@ -1,0 +1,9 @@
+INFO:root:Requesting URL: https://listado.mercadolibre.com.co/libros?page=1
+INFO:root:Response status code: 200
+INFO:root:Response content preview: b'\n<!DOCTYPE html>\n<html lang="es-CO">\n<head><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="preconnect" href="https://www.google.com"/><link rel="preconnect" href="https://da'
+INFO:root:Requesting URL: https://listado.mercadolibre.com.co/libros?page=1
+INFO:root:Response status code: 200
+INFO:root:Full response content saved to mercadolibre_response.html
+INFO:root:Requesting URL: https://listado.mercadolibre.com.co/laptop?page=1
+INFO:root:Response status code: 200
+INFO:root:Full response content saved to mercadolibre_response.html
